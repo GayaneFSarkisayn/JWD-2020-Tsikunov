@@ -13,7 +13,7 @@ public class LastDigitOfSquareMain {
             int digit = service.getLastDigitOfSquare(number);
             console.print(number, digit);
         }
-        catch (Exception e) {
+        catch (IllegalArgumentException e) {
             console.printError(e);
         }
 

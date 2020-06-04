@@ -1,0 +1,30 @@
+package by.tsikunov.day1.service;
+
+import by.tsikunov.day1.enumerator.Months;
+import by.tsikunov.day1.validator.DateValidator;
+
+public class DaysOfMonthService {
+
+    private static final int MODIFIER_FOR_LEAP_YEAR = 1;
+
+    public int daysCounter(int month, int year) {
+
+        DateValidator validator = new DateValidator();
+        if(!validator.isValid(month, year)) {
+            throw new IllegalArgumentException("Invalid data");
+        }
+        Months[] months = Months.values();
+        int days;
+        if(!isLeap(year)) {
+            days = months[month - 1].getDays();
+        } else {
+            days = months[month - 1].getDays() + MODIFIER_FOR_LEAP_YEAR;
+        }
+        return days;
+    }
+
+    private boolean isLeap(int year) {
+        return (year % 400 == 0) ||
+                ((year % 4 == 0) && (year % 100 != 0));
+    }
+}
