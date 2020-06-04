@@ -6,4 +6,7 @@ public class NumberValidator {
     public boolean isValid(int number) {
         return (number <= MAX_VALUE && number >= MIN_VALUE);
     }
+    public boolean isValid(double number) {
+        return (number <= MAX_VALUE && number >= MIN_VALUE);
+    }
 }
