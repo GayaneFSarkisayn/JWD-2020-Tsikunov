@@ -14,7 +14,7 @@ public class ComparisonSquaresMain {
             innerSquare = comparison.calculateSquareInnerQuadrate(outerSquare);
             difference = comparison.calculateSquaresDifference(outerSquare, innerSquare);
             console.print(difference, innerSquare);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             console.printError(e);
         }
 
@@ -23,7 +23,7 @@ public class ComparisonSquaresMain {
             innerSquare = comparison.calculateSquareInnerQuadrate(outerSquare);
             difference = comparison.calculateSquaresDifference(outerSquare, innerSquare);
             console.print(difference, innerSquare);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             console.printError(e);
         }
 

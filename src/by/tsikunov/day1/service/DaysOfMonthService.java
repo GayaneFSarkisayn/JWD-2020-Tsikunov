@@ -1,6 +1,6 @@
 package by.tsikunov.day1.service;
 
-import by.tsikunov.day1.enumerator.Months;
+import by.tsikunov.day1.enumerator.Month;
 import by.tsikunov.day1.validator.DateValidator;
 
 public class DaysOfMonthService {
@@ -13,7 +13,7 @@ public class DaysOfMonthService {
         if(!validator.isValid(month, year)) {
             throw new IllegalArgumentException("Invalid data");
         }
-        Months[] months = Months.values();
+        Month[] months = Month.values();
         int days;
         if(!isLeap(year)) {
             days = months[month - 1].getDays();

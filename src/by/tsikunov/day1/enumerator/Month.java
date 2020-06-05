@@ -1,6 +1,6 @@
 package by.tsikunov.day1.enumerator;
 
-public enum Months {
+public enum Month {
     JANUARY(31),
     FEBRUARY(28),
     MARCH(31),
@@ -15,7 +15,7 @@ public enum Months {
     DECEMBER(31);
 
     private int days;
-    Months(int days) {
+    Month(int days) {
         this.days = days;
     }
     public int getDays(){
