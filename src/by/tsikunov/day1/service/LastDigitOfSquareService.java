@@ -5,7 +5,8 @@ import by.tsikunov.day1.validator.NumberValidator;
 public class LastDigitOfSquareService {
 
     private int getLastDigit(int number) {
-        return number %= 10;
+        number %= 10;
+        return number;
     }
     public int getLastDigitOfSquare(int number) {
         NumberValidator validator = new NumberValidator();

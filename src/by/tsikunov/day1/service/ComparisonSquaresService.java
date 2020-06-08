@@ -11,6 +11,9 @@ public class ComparisonSquaresService {
         return square / 2;
     }
     public double calculateSquaresDifference(double outerSquare, double innerSquare) {
+        if(innerSquare == 0) {
+            throw new ArithmeticException("Divide by zero");
+        }
         return outerSquare / innerSquare;
     }
 }
