@@ -1,6 +1,7 @@
 package by.tsikunov.day1.service;
 
 
+import by.tsikunov.day1.exception.ProjectIllegalDataException;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
@@ -10,22 +11,30 @@ public class DaysOfMonthServiceTest {
 
     @Test
     public void daysCounterLeapTest() {
-        int actual = service.daysCounter(2, 2020);
-        int expected = 29;
-        assertEquals(actual, expected, "Wrong date...");
+        try {
+            int actual = service.daysCounter(2, 2020);
+            int expected = 29;
+            assertEquals(actual, expected, "Wrong date...");
+        } catch (Exception e) {
+            fail("Got unexpected exception");
+        }
     }
 
     @Test
     public void daysCounterNotLeapTest() {
-        int actual = service.daysCounter(2, 2021);
-        int expected = 28;
-        assertEquals(actual, expected, "Wrong date...");
+        try {
+            int actual = service.daysCounter(2, 2021);
+            int expected = 28;
+            assertEquals(actual, expected, "Wrong date...");
+        } catch (Exception e) {
+            fail("Got unexpected exception");
+        }
     }
 
-    @Test(enabled = true, expectedExceptions = IllegalArgumentException.class,
+    @Test(enabled = true, expectedExceptions = ProjectIllegalDataException.class,
     expectedExceptionsMessageRegExp = "Invalid data")
-    public void daysCounterException() {
-        int actual = service.daysCounter(13, 2020);
+    public void daysCounterException() throws ProjectIllegalDataException {
+        service.daysCounter(13, 2020);
     }
 
 }

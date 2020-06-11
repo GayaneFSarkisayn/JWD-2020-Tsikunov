@@ -1,17 +1,18 @@
 package by.tsikunov.day1.service;
 
 import by.tsikunov.day1.enumerator.Month;
+import by.tsikunov.day1.exception.ProjectIllegalDataException;
 import by.tsikunov.day1.validator.DateValidator;
 
 public class DaysOfMonthService {
 
     private static final int MODIFIER_FOR_LEAP_YEAR = 1;
 
-    public int daysCounter(int month, int year) {
+    public int daysCounter(int month, int year) throws ProjectIllegalDataException {
 
         DateValidator validator = new DateValidator();
-        if(!validator.isValid(month, year)) {
-            throw new IllegalArgumentException("Invalid data");
+        if(!validator.isValidDate(month, year)) {
+            throw new ProjectIllegalDataException("Invalid data");
         }
         Month[] months = Month.values();
         int days;
