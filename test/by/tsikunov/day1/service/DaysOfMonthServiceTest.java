@@ -10,7 +10,7 @@ public class DaysOfMonthServiceTest {
     DaysOfMonthService service = new DaysOfMonthService();
 
     @Test
-    public void daysCounterLeapTest() {
+    public void daysCounterLeapPositiveTest() {
         try {
             int actual = service.daysCounter(2, 2020);
             int expected = 29;
@@ -21,11 +21,33 @@ public class DaysOfMonthServiceTest {
     }
 
     @Test
-    public void daysCounterNotLeapTest() {
+    public void daysCounterLeapNegativeTest() {
+        try {
+            int actual = service.daysCounter(2, 2020);
+            int expected = 28;
+            assertNotEquals(actual, expected, "Wrong date...");
+        } catch (Exception e) {
+            fail("Got unexpected exception");
+        }
+    }
+
+    @Test
+    public void daysCounterNotLeapPositiveTest() {
         try {
             int actual = service.daysCounter(2, 2021);
             int expected = 28;
             assertEquals(actual, expected, "Wrong date...");
+        } catch (Exception e) {
+            fail("Got unexpected exception");
+        }
+    }
+
+    @Test
+    public void daysCounterNotLeapNegativeTest() {
+        try {
+            int actual = service.daysCounter(2, 2021);
+            int expected = 30;
+            assertNotEquals(actual, expected, "Wrong date...");
         } catch (Exception e) {
             fail("Got unexpected exception");
         }

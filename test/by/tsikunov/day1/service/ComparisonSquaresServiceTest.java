@@ -9,12 +9,24 @@ public class ComparisonSquaresServiceTest {
     ComparisonSquaresService service = new ComparisonSquaresService();
 
     @Test
-    public void calculateSquareInnerQuadrateTest() {
+    public void calculateSquareInnerQuadratePositiveTest() {
 
         try {
             double actual = service.calculateSquareInnerQuadrate(25);
             double expected = 12.5;
             assertEquals(actual, expected, 0.001, "Wrong data...");
+        } catch (Exception e) {
+            fail("Got unexpected exception");
+        }
+    }
+
+    @Test
+    public void calculateSquareInnerQuadrateNegativeTest() {
+
+        try {
+            double actual = service.calculateSquareInnerQuadrate(25);
+            double expected = 12;
+            assertNotEquals(actual, expected, 0.001, "Wrong data...");
         } catch (Exception e) {
             fail("Got unexpected exception");
         }
@@ -28,11 +40,22 @@ public class ComparisonSquaresServiceTest {
     }
 
     @Test
-    public void calculateSquaresDifferenceTest() {
+    public void calculateSquaresDifferencePositiveTest() {
         try {
             double actual = service.calculateSquaresDifference(25, 12.5);
             double expected = 2.0;
             assertEquals(actual, expected, 0.001, "Wrong data");
+        } catch (Exception e) {
+            fail("Got unexpected exception");
+        }
+    }
+
+    @Test
+    public void calculateSquaresDifferenceNegativeTest() {
+        try {
+            double actual = service.calculateSquaresDifference(25, 12.5);
+            double expected = 3.0;
+            assertNotEquals(actual, expected, 0.001, "Wrong data");
         } catch (Exception e) {
             fail("Got unexpected exception");
         }

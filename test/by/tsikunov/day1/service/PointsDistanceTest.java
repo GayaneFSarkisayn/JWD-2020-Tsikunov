@@ -10,13 +10,26 @@ public class PointsDistanceTest {
     PointsDistanceService service = new PointsDistanceService();
 
     @Test
-    public void whichCloserTest() {
+    public void whichCloserPositiveTest() {
         Point a = new Point(4, 2, "A");
         Point b = new Point(1, 1, "B");
         try{
             Point actualPoint = service.whichCloser(a, b);
             Point expectedPoint = b;
             assertEquals(actualPoint, expectedPoint, "Incorrect result");
+        } catch (Exception e) {
+            fail("Unexpected exception");
+        }
+    }
+
+    @Test
+    public void whichCloserNegativeTest() {
+        Point a = new Point(4, 2, "A");
+        Point b = new Point(1, 1, "B");
+        try{
+            Point actualPoint = service.whichCloser(a, b);
+            Point expectedPoint = a;
+            assertNotEquals(actualPoint, expectedPoint, "Incorrect result");
         } catch (Exception e) {
             fail("Unexpected exception");
         }
