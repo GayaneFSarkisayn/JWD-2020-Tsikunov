@@ -14,7 +14,7 @@ public class PerfectNumberTest {
             boolean actual = service.isPerfectNumber(28);
             assertTrue(actual);
         } catch (Exception e) {
-            fail("Got unexpected exeption");
+            fail("Got unexpected exception");
         }
     }
 
@@ -24,13 +24,13 @@ public class PerfectNumberTest {
             boolean actual = service.isPerfectNumber(5);
             assertFalse(actual);
         } catch (Exception e) {
-            fail("Got unexpected exeption");
+            fail("Got unexpected exception");
         }
     }
 
     @Test(enabled = true, expectedExceptions = ProjectIllegalDataException.class,
             expectedExceptionsMessageRegExp = "Illegal data")
-    public void isPerfectNumberExeption() throws ProjectIllegalDataException {
+    public void isPerfectNumberException() throws ProjectIllegalDataException {
         service.isPerfectNumber(200);
     }
 

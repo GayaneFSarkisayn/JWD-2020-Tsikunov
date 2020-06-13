@@ -21,4 +21,16 @@ public class NumberValidatorTest {
         assertFalse(actual, "Wrong data...");
     }
 
+    @Test
+    public void validateLineIntervalPositive() {
+        boolean actual = validator.validateLineInterval(1, 5, 2);
+        assertTrue(actual, "Wrong data...");
+    }
+
+    @Test
+    public void validateLineIntervalNegative() {
+        boolean actual = validator.validateLineInterval(1,2, -1);
+        assertFalse(actual, "Wrong data...");
+    }
+
 }

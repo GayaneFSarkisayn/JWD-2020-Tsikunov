@@ -5,17 +5,27 @@ import org.testng.annotations.Test;
 
 import java.time.LocalTime;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.fail;
+import static org.testng.Assert.*;
 
 public class AmountSecondsMinutesHoursTest {
     AmountSecondsMinutesHoursService service = new AmountSecondsMinutesHoursService();
     @Test
-    public void calculateDayClockTest() {
+    public void calculateDayClockPositiveTest() {
         try {
             LocalTime expected = LocalTime.of(23, 45, 10);
             LocalTime actual = service.calculateDayClock(85510);
             assertEquals(actual, expected, "Wrong date");
+        }catch (Exception e) {
+            fail("Unexpected exception");
+        }
+    }
+
+    @Test
+    public void calculateDayClockNegativeTest() {
+        try {
+            LocalTime expected = LocalTime.of(23, 45, 10);
+            LocalTime actual = service.calculateDayClock(85511);
+            assertNotEquals(actual, expected, "Wrong date");
         }catch (Exception e) {
             fail("Unexpected exception");
         }
